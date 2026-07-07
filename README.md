@@ -1,6 +1,6 @@
 # FlareIQ
 
-**Live demo: (deploying)**
+**Live demo: [flareiq-vert.vercel.app](https://flareiq-vert.vercel.app)**
 
 Independent flaring and venting intelligence for every Alberta operator, built from public
 AER and Petrinex data. FlareIQ turns raw monthly volumetric reports into an emissions map,
