@@ -112,7 +112,8 @@ export default function Sidebar(props: {
 
       <div className="foot">
         Estimates from public data (AER Directive 060, Orphan Well Association cost basis, Petrinex
-        volumetrics). CO₂e uses methane GWP100. Above a Directive 060 threshold = conservation-review
+        volumetrics). CO₂e uses the AER&apos;s published ST60B factors: 16.1 tCO₂e per 10³m³ vented,
+        2.3 flared (85% methane, 95% flare efficiency, GWP100 28). Above a Directive 060 threshold = conservation-review
         trigger, not a finding of non-compliance. Not affiliated with the AER.
       </div>
     </aside>

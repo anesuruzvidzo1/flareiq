@@ -22,9 +22,7 @@ from sklearn.preprocessing import StandardScaler
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 
-GAS_DENSITY = 0.68
-GWP100 = 28
-FLARE_CO2E_PER_TCH4 = 0.98 * (44 / 16) + 0.02 * GWP100
+from emissions import co2e_tonnes  # noqa: E402
 
 
 def robust_z(s):
@@ -47,7 +45,7 @@ def main():
     # intensity only meaningful for producing facilities (plants/gathering have no PROD -> would be trivially 1.0)
     fac["flare_intensity"] = np.where(fac["gas_prod"] > 0, fac["flare"] / (fac["flare"] + fac["gas_prod"]), np.nan)
     fac["vent_intensity"] = np.where(fac["gas_prod"] > 0, fac["vent"] / (fac["vent"] + fac["gas_prod"]), np.nan)
-    fac["co2e_t"] = fac["vent"] * GAS_DENSITY * GWP100 + fac["flare"] * GAS_DENSITY * FLARE_CO2E_PER_TCH4
+    fac["co2e_t"] = co2e_tonnes(fac["vent"], fac["flare"])
 
     # Isolation Forest on facilities that actually flare or vent
     act = fac[(fac["flare"] + fac["vent"]) > 0].copy()

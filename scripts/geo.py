@@ -19,6 +19,7 @@ import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
+WEB = os.path.join(HERE, "..", "web", "public", "data")
 
 MERIDIAN_LON = {4: -110.0, 5: -114.0, 6: -118.0}
 MILE_KM = 1.60934
@@ -93,11 +94,14 @@ def main():
             },
         })
     fc = {"type": "FeatureCollection", "features": features}
-    out = os.path.join(DATA, "facilities.geojson")
-    with open(out, "w") as f:
-        json.dump(fc, f)
-    print(f"wrote {len(features):,} facility features -> {out} "
-          f"({os.path.getsize(out)/1e6:.1f} MB)")
+    # write to data/ for the pipeline and to web/public/data/ for the site, so the
+    # map can never quietly serve a stale geojson while summary.json is current
+    for out in (os.path.join(DATA, "facilities.geojson"),
+                os.path.join(WEB, "facilities.geojson")):
+        with open(out, "w") as f:
+            json.dump(fc, f)
+        print(f"wrote {len(features):,} facility features -> {out} "
+              f"({os.path.getsize(out)/1e6:.1f} MB)")
 
 
 if __name__ == "__main__":

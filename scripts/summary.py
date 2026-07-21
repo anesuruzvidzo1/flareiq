@@ -14,9 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 WEB = os.path.join(HERE, "..", "web", "public", "data")
 
-GAS_DENSITY = 0.68
-GWP100 = 28
-FLARE_CO2E = 0.98 * (44 / 16) + 0.02 * GWP100
+from emissions import co2e_tonnes  # noqa: E402
 
 
 def main():
@@ -24,7 +22,7 @@ def main():
     for c in ["flare", "vent", "gas_prod"]:
         df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0).clip(lower=0)
     df["year"] = df["ProductionMonth"].str[:4]
-    df["co2e"] = df["vent"] * GAS_DENSITY * GWP100 + df["flare"] * GAS_DENSITY * FLARE_CO2E
+    df["co2e"] = co2e_tonnes(df["vent"], df["flare"])
 
     yearly = (df.groupby("year").agg(flare=("flare", "sum"), vent=("vent", "sum"))
                 .round(0).astype(int).reset_index())

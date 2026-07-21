@@ -4,7 +4,8 @@ Reads data/flare_vent_monthly.csv and builds a facility-level anomaly watchlist 
 is NOT a black box. Every flag has a stated reason, grounded in:
   - AER Directive 060 thresholds (routine venting limit; 900 m3/day conservation trigger)
   - peer-relative flaring intensity (routine over-flaring vs same-type facilities)
-  - a methane-weighted CO2e severity score (venting is ~8-9x worse than flaring per m3)
+  - a methane-weighted CO2e severity score (venting is ~7x worse than flaring per m3,
+    using the AER's own published factors: see emissions.py)
 
 The ML layer (Isolation Forest, temporal upset spikes) is Piece 2b.
 
@@ -18,22 +19,12 @@ import pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 
-# --- emissions factors (standard, labelled) ---
-GAS_DENSITY_T_PER_E3M3 = 0.68          # ~methane density: 0.68 kg/m3 -> 0.68 t per 10^3 m3
-GWP100_CH4 = 28                        # IPCC AR5 100-yr GWP for methane
-FLARE_EFFICIENCY = 0.98                # 98% combustion, 2% methane slip
-CO2_PER_T_CH4_BURNED = 44 / 16         # 2.75 t CO2 per t CH4 combusted
-VENT_CO2E_PER_TCH4 = GWP100_CH4
-FLARE_CO2E_PER_TCH4 = FLARE_EFFICIENCY * CO2_PER_T_CH4_BURNED + (1 - FLARE_EFFICIENCY) * GWP100_CH4
+# --- emissions factors: see emissions.py, derived from the AER's own convention ---
+from emissions import co2e_tonnes  # noqa: E402
 
 # --- AER Directive 060 site thresholds ---
 VENT_ROUTINE_LIMIT = 3.0               # routine venting limit: 3,000 m3/month = 3 x10^3 m3/month
 CONSERVATION_TRIGGER = 0.9 * 30.4      # 900 m3/day combined flare+vent -> ~27.4 x10^3 m3/month
-
-
-def co2e_tonnes(vent, flare):
-    return (vent * GAS_DENSITY_T_PER_E3M3 * VENT_CO2E_PER_TCH4
-            + flare * GAS_DENSITY_T_PER_E3M3 * FLARE_CO2E_PER_TCH4)
 
 
 def robust_z(s):

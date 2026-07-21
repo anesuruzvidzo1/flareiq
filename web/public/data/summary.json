@@ -7,7 +7,7 @@
   "flagged": 4044,
   "total_flare": 5448766,
   "total_vent": 1267938,
-  "total_co2e": 36201846
+  "total_co2e": 33084088
  },
  "trend": [
   {
@@ -39,153 +39,153 @@
  "top_operators": [
   {
    "operator": "CANADIAN NATURAL RESOURCES LIMITED",
-   "co2e": 4724813,
+   "co2e": 4160358,
    "flare": 350507,
    "vent": 207405
   },
   {
    "operator": "TOURMALINE OIL CORP.",
-   "co2e": 2394618,
+   "co2e": 2062532,
    "flare": 72325,
    "vent": 117359
   },
   {
    "operator": "CENOVUS ENERGY INC.",
-   "co2e": 2275824,
+   "co2e": 2010268,
    "flare": 183315,
    "vent": 98218
   },
   {
    "operator": "TAMARACK VALLEY ENERGY LTD.",
-   "co2e": 1476397,
+   "co2e": 1495703,
    "flare": 557452,
    "vent": 12738
   },
   {
+   "operator": "SPUR PETROLEUM LTD.",
+   "co2e": 875862,
+   "flare": 360745,
+   "vent": 2542
+  },
+  {
    "operator": "WHITECAP RESOURCES INC.",
-   "co2e": 950483,
+   "co2e": 838621,
    "flare": 74377,
    "vent": 41274
   },
   {
    "operator": "PEYTO EXPLORATION & DEVELOPMENT CORP.",
-   "co2e": 860927,
+   "co2e": 748770,
    "flare": 42566,
    "vent": 40268
   },
   {
-   "operator": "SPUR PETROLEUM LTD.",
-   "co2e": 846884,
-   "flare": 360745,
-   "vent": 2542
-  },
-  {
-   "operator": "TAQA NORTH LTD.",
-   "co2e": 798838,
-   "flare": 52585,
-   "vent": 35842
-  },
-  {
    "operator": "ARC RESOURCES LTD.",
-   "co2e": 752724,
+   "co2e": 729550,
    "flare": 208636,
    "vent": 15279
   },
   {
+   "operator": "TAQA NORTH LTD.",
+   "co2e": 700487,
+   "flare": 52585,
+   "vent": 35842
+  },
+  {
+   "operator": "HEADWATER EXPLORATION INC.",
+   "co2e": 558953,
+   "flare": 234550,
+   "vent": 1001
+  },
+  {
    "operator": "PARAMOUNT RESOURCES LTD.",
-   "co2e": 592130,
+   "co2e": 530505,
    "flare": 64791,
    "vent": 23567
   },
   {
    "operator": "OBSIDIAN ENERGY LTD.",
-   "co2e": 566787,
+   "co2e": 514345,
    "flare": 77000,
    "vent": 20817
   },
   {
-   "operator": "BONAVISTA ENERGY CORPORATION",
-   "co2e": 549154,
-   "flare": 8586,
-   "vent": 27844
-  },
-  {
-   "operator": "HEADWATER EXPLORATION INC.",
-   "co2e": 538229,
-   "flare": 234550,
-   "vent": 1001
-  },
-  {
-   "operator": "SPARTAN DELTA CORP.",
-   "co2e": 493812,
-   "flare": 42243,
-   "vent": 21024
-  },
-  {
-   "operator": "VERMILION ENERGY INC.",
-   "co2e": 487302,
-   "flare": 19139,
-   "vent": 23368
-  },
-  {
    "operator": "PEMBINA GAS INFRASTRUCTURE INC.",
-   "co2e": 479853,
+   "co2e": 487073,
    "flare": 183346,
    "vent": 3888
   },
   {
    "operator": "BAYTEX ENERGY LTD.",
-   "co2e": 471936,
+   "co2e": 480950,
    "flare": 184698,
    "vent": 3315
   },
   {
+   "operator": "BONAVISTA ENERGY CORPORATION",
+   "co2e": 469502,
+   "flare": 8586,
+   "vent": 27844
+  },
+  {
+   "operator": "SPARTAN DELTA CORP.",
+   "co2e": 437269,
+   "flare": 42243,
+   "vent": 21024
+  },
+  {
+   "operator": "VERMILION ENERGY INC.",
+   "co2e": 421654,
+   "flare": 19139,
+   "vent": 23368
+  },
+  {
    "operator": "PINE CLIFF ENERGY LTD.",
-   "co2e": 442655,
+   "co2e": 377584,
    "flare": 4937,
    "vent": 22674
   },
   {
    "operator": "WESTBRICK ENERGY LTD.",
-   "co2e": 436657,
+   "co2e": 377395,
    "flare": 16149,
    "vent": 21056
   },
   {
    "operator": "TORXEN ENERGY LTD.",
-   "co2e": 425389,
+   "co2e": 368498,
    "flare": 17659,
    "vent": 20288
   },
   {
    "operator": "CARDINAL ENERGY LTD.",
-   "co2e": 404115,
+   "co2e": 365951,
    "flare": 53129,
    "vent": 15048
   },
   {
    "operator": "HWN ENERGY LTD.",
-   "co2e": 394660,
+   "co2e": 343697,
    "flare": 20546,
    "vent": 18339
   },
   {
-   "operator": "STRATHCONA RESOURCES LTD.",
-   "co2e": 349258,
-   "flare": 66086,
-   "vent": 10660
-  },
-  {
    "operator": "KEYERA ENERGY LTD.",
-   "co2e": 338026,
+   "co2e": 340961,
    "flare": 124232,
    "vent": 3311
   },
   {
-   "operator": "REPSOL OIL & GAS CANADA INC.",
-   "co2e": 332730,
-   "flare": 19576,
-   "vent": 15199
+   "operator": "RUBELLITE ENERGY INC.",
+   "co2e": 334255,
+   "flare": 128940,
+   "vent": 2221
+  },
+  {
+   "operator": "STRATHCONA RESOURCES LTD.",
+   "co2e": 325085,
+   "flare": 66086,
+   "vent": 10660
   }
  ]
 }

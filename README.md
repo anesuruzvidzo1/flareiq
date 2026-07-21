@@ -20,9 +20,15 @@ only their own customers; FlareIQ covers the whole province.
 
 ## Why the numbers are framed carefully
 
-- Venting is roughly eight to nine times worse than flaring per cubic metre, because vented
-  gas is raw methane (GWP100 of 28) while flaring burns it to CO2. Severity is ranked by CO2e,
-  not raw volume, so the worst climate emitters surface first.
+- Venting is roughly seven times worse than flaring per cubic metre, because vented gas
+  escapes as methane (GWP100 of 28) while flaring burns most of it to CO2. Severity is ranked
+  by CO2e, not raw volume, so the worst climate emitters surface first.
+- The emission factors follow the AER's own published convention rather than a house method:
+  85 per cent methane mole fraction, 95 per cent flare conversion efficiency, methane density
+  0.6785 kg per cubic metre, GWP100 of 28. That reproduces the factors the AER publishes in
+  ST60B, 16.1 tCO2e per thousand cubic metres vented and 2.3 flared, so these numbers
+  reconcile with the regulator's own report instead of quietly diverging from it. The
+  derivation lives in scripts/emissions.py and asserts itself against those published values.
 - Exceeding a Directive 060 threshold means a facility is above a conservation review trigger,
   not that it is non compliant. Many facilities hold approvals.
 - Facility locations are township centre approximations. Exact coordinates from the AER
