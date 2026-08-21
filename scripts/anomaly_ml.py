@@ -49,7 +49,8 @@ def main():
 
     # Isolation Forest on facilities that actually flare or vent
     act = fac[(fac["flare"] + fac["vent"]) > 0].copy()
-    feats = ["flare", "vent", "gas_prod", "flare_volatility"]  # intensity excluded: invalid for non-producing facilities
+    # intensity excluded: invalid for non-producing facilities
+    feats = ["flare", "vent", "gas_prod", "flare_volatility"]
     X = act[feats].copy()
     for c in ["flare", "vent", "gas_prod"]:
         X[c] = np.log1p(X[c])
