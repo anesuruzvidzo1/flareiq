@@ -27,9 +27,12 @@ export default function FlareMap({
       if (dead || !el.current || map.current) return;
       L.current = Lm;
       map.current = Lm.map(el.current, { preferCanvas: true, zoomControl: true }).setView([54.3, -114.8], 5);
-      Lm.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution: "&copy; OpenStreetMap &copy; CARTO", subdomains: "abcd", maxZoom: 12,
+      // Esri light gray canvas: keyless (CARTO basemaps began requiring an API key on 23 Sep 2026)
+      const esri = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas";
+      Lm.tileLayer(`${esri}/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}`, {
+        attribution: "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors", maxZoom: 12,
       }).addTo(map.current);
+      Lm.tileLayer(`${esri}/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}`, { maxZoom: 12 }).addTo(map.current);
     })();
     return () => { dead = true; if (map.current) { map.current.remove(); map.current = null; } };
   }, []);
